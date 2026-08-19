@@ -1,0 +1,27 @@
+name: Test formula
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  formula:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Homebrew style
+        run: |
+          brew developer on
+          brew style Formula/nauclio.rb
+      - name: Install and test the formula
+        run: |
+          set -euo pipefail
+          brew tap-new nauclio/ci
+          cp Formula/nauclio.rb "$(brew --repo nauclio/ci)/Formula/nauclio.rb"
+          brew install nauclio/ci/nauclio
+          brew test nauclio/ci/nauclio
