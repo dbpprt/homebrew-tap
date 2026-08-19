@@ -7,6 +7,15 @@ brew install dbpprt/tap/nauclio
 nauclio setup ~/Development/my-project
 ```
 
+Install the Apple Silicon macOS app:
+
+```sh
+brew install --cask dbpprt/tap/nauclio-app
+```
+
+The daemon and app are installed and upgraded independently by Homebrew but
+published from the same Nauclio release tag.
+
 Useful service commands:
 
 ```sh
