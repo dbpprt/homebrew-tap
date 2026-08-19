@@ -11,7 +11,7 @@ class Nauclio < Formula
   depends_on "node"
 
   def install
-    bin.install "nauclio-darwin-arm64/nauclio"
+    bin.install "nauclio"
   end
 
   service do
