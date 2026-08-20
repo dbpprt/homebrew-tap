@@ -1,9 +1,9 @@
 class Nauclio < Formula
   desc "Local daemon for durable AI coding-agent conversations"
   homepage "https://github.com/dbpprt/homebrew-tap"
-  url "https://github.com/dbpprt/homebrew-tap/releases/download/v0.4.15/nauclio-darwin-arm64.tar.gz"
-  version "0.4.15"
-  sha256 "bfec26afd3be8115066efc758435da5dd3f513f1f416f3c819d713f1a8854279"
+  url "https://github.com/dbpprt/homebrew-tap/releases/download/v0.0.21/nauclio-darwin-arm64.tar.gz"
+  version "0.0.21"
+  sha256 "9cc2629f31b641422c00eb6f2436ab41447e547755d90a6d522076b8392c262e"
   license "MIT"
 
   depends_on arch: :arm64
