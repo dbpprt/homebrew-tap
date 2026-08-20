@@ -12,5 +12,10 @@ cask "nauclio-app" do
 
   app "Nauclio.app"
 
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args: ["-dr", "com.apple.quarantine", "{{appdir}}/Nauclio.app"]
+  end
+
   zap trash: "~/Library/Application Support/com.dbpprt.nauclio.mac"
 end
