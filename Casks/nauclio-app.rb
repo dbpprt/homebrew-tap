@@ -1,6 +1,6 @@
 cask "nauclio-app" do
-  version "0.4.29"
-  sha256 "0520bf8c6e052e7315241f2ca2159b481d7001f9220994fd9c0dcbdc4cfe78ea"
+  version "0.4.30"
+  sha256 "e6887270ad057cd415e9881eb025826294dc3fc3602bec713db0a6259b29f382"
 
   url "https://github.com/dbpprt/homebrew-tap/releases/download/v#{version}/Nauclio-macOS-arm64.zip"
   name "Nauclio"
