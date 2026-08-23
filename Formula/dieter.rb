@@ -33,7 +33,6 @@ class Dieter < Formula
         dieter daemon status
         dieter daemon logs --follow
 
-      Dieter imports an existing ~/.nauclio installation into ~/.dieter once.
       Dieter data remains in ~/.dieter after uninstalling the formula.
     EOS
   end

@@ -17,8 +17,5 @@ cask "dieter-app" do
         args: ["-dr", "com.apple.quarantine", "{{appdir}}/Dieter.app"]
   end
 
-  zap trash: [
-    "~/Library/Application Support/com.dbpprt.dieter.mac",
-    "~/Library/Application Support/com.dbpprt.nauclio.mac",
-  ]
+  zap trash: "~/Library/Application Support/com.dbpprt.dieter.mac"
 end

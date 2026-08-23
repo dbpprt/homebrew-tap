@@ -26,5 +26,4 @@ brew upgrade dieter
 ```
 
 Dieter stores its state and managed logs under `DIETER_HOME`, which defaults to
-`~/.dieter`. The first run imports an existing `~/.nauclio` installation.
-Uninstalling the formula does not delete that data.
+`~/.dieter`. Uninstalling the formula does not delete that data.
