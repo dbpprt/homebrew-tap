@@ -8,6 +8,7 @@ class Dieter < Formula
 
   depends_on arch: :arm64
   depends_on :macos
+  depends_on "ffmpeg"
   depends_on "node"
 
   def install
