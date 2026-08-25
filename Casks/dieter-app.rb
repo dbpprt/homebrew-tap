@@ -1,6 +1,6 @@
 cask "dieter-app" do
-  version "0.4.49"
-  sha256 "e06659765e1ee87ff6ee920ba68d97eb8d5d78a1c9a8c502bff6cb3a266db98f"
+  version "0.4.50"
+  sha256 "8297af22926304ea9112248dad872fb9e99d9a1c4a60de40deddb23971ca030a"
 
   url "https://github.com/dbpprt/homebrew-tap/releases/download/v#{version}/Dieter-macOS-arm64.zip"
   name "Dieter"
