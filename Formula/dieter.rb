@@ -1,9 +1,9 @@
 class Dieter < Formula
   desc "Local daemon for durable AI coding-agent conversations"
   homepage "https://github.com/dbpprt/homebrew-tap"
-  url "https://github.com/dbpprt/homebrew-tap/releases/download/v0.4.122/dieter-darwin-arm64.tar.gz"
-  version "0.4.122"
-  sha256 "7d4545da60c6dd9b4b832dd792de66749cac7425a1c2ecd19c7baeaffa43b40a"
+  url "https://github.com/dbpprt/homebrew-tap/releases/download/v0.4.123/dieter-darwin-arm64.tar.gz"
+  version "0.4.123"
+  sha256 "ebc4a7a8a8e0a1e9ff22c89827c0061a274cd58709660b5101e427d02c12fab5"
   license "MIT"
 
   depends_on arch: :arm64
