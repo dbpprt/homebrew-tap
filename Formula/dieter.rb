@@ -1,23 +1,30 @@
 class Dieter < Formula
   desc "Local daemon for durable AI coding-agent conversations"
   homepage "https://github.com/dbpprt/homebrew-tap"
-  url "https://github.com/dbpprt/homebrew-tap/releases/download/v0.4.133/dieter-darwin-arm64.tar.gz"
-  version "0.4.133"
-  sha256 "fb16306d7c4477f763abdf24e39e548eca9fbc2702132f3a1e53afbb782239fe"
+  url "https://github.com/dbpprt/homebrew-tap/releases/download/v0.4.135/dieter-darwin-arm64.tar.gz"
+  version "0.4.135"
+  sha256 "a937bcef377f437d12bcb51be696359b765dbefa1de99c22975d47351decb55a"
   license "MIT"
 
   depends_on arch: :arm64
   depends_on :macos
   depends_on "node"
-
   depends_on "tmux"
 
   def install
     bin.install "dieter", "dieter-capture"
   end
 
+  post_install_steps do
+    mkdir_p "dieter/service", base: :var
+    run "bin/dieter", base: :prefix,
+        args: ["__service-stage", "--root", "{{var}}/dieter/service"],
+        writable_paths: ["dieter/service"], writable_base: :var
+  end
+
   service do
-    run [opt_bin/"dieter", "daemon", "start", "--service"]
+    run [var/"dieter/service/bin/dieter", "daemon", "start", "--service",
+         "--runtime", var/"dieter/service"]
     keep_alive true
     restart_delay 5
     process_type :background
@@ -28,19 +35,27 @@ class Dieter < Formula
 
   def caveats
     <<~EOS
-      Complete GitHub authorization, register projects, and start the service:
+      Complete GitHub authorization and start the service:
         dieter setup /path/to/git-project
 
-      Inspect the daemon:
-        dieter daemon status
-        dieter daemon logs --follow
+      Upgrades stage a signed release without changing the running service.
+      Activate the staged release and refresh the service definition with:
+        brew services restart dieter
 
-      Dieter data remains in ~/.dieter after uninstalling the formula.
+      Check permissions through the running daemon:
+        dieter daemon permissions --check
+
+      When migrating from a Cellar service, grant Screen Recording and
+      Accessibility access to #{var}/dieter/service/bin/dieter once.
+
+      After uninstall, Dieter data remains in ~/.dieter and the service
+      runtime remains in #{var}/dieter/service. Stop the service before
+      uninstalling. Remove the runtime separately only when no longer needed.
     EOS
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/dieter version")
-    assert_match "local-host", shell_output("#{bin}/dieter --store #{testpath} status")
+    assert_match "running daemon", shell_output("#{bin}/dieter screen permissions --help")
   end
 end
