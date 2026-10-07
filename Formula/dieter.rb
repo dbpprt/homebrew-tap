@@ -1,9 +1,9 @@
 class Dieter < Formula
   desc "Local daemon for durable AI coding-agent conversations"
   homepage "https://github.com/dbpprt/homebrew-tap"
-  url "https://github.com/dbpprt/dieter/releases/download/v0.4.383/dieter-darwin-arm64.tar.gz"
-  version "0.4.383"
-  sha256 "acea0fbed0608e00c995200168e5ff35821122716911932da074eddde1ac087c"
+  url "https://github.com/dbpprt/dieter/releases/download/v0.4.387/dieter-darwin-arm64.tar.gz"
+  version "0.4.387"
+  sha256 "a4d23f3f0622f97da3e91c64eeb29fd22e06c210c80c4a1507813fc7340cda48"
   license "MIT"
 
   depends_on arch: :arm64
@@ -13,12 +13,14 @@ class Dieter < Formula
 
   def install
     bin.install "dieter", "dieter-capture"
+    libexec.install "DieterPrivacyHelper.app"
   end
 
   post_install_steps do
     mkdir_p "dieter/service", base: :var
     run "bin/dieter", base: :prefix,
-        args: ["__service-stage", "--root", "{{var}}/dieter/service"],
+        args: ["__service-stage", "--root", "{{var}}/dieter/service",
+               "--bundle-prefix", "../libexec"],
         writable_paths: ["dieter/service"], writable_base: :var
   end
 
@@ -36,7 +38,12 @@ class Dieter < Formula
   def caveats
     <<~EOS
       Complete GitHub authorization and start the service:
-        dieter setup /path/to/git-project
+        dieter setup
+
+      Setup also registers the background privacy helper. Approve Dieter Privacy
+      Helper in Login Items & Extensions and grant Input Monitoring when prompted.
+      Privacy stays off until explicitly enabled. Register projects separately:
+        dieter project open /path/to/git-project
 
       Upgrades stage a signed release without changing the running service.
       Activate the staged release and refresh the service definition with:
