@@ -1,8 +1,8 @@
 cask "dieter-app" do
-  version "0.4.399"
-  sha256 "faa87448b110e55d87a5b06ed54f082651622123a0865c5e237f0bb2c9fdc9da"
+  version "0.5.404"
+  sha256 "0d37805042cb5ff455d98ac403009ec0485e05a7781bb04da95ae8f4abe50885"
 
-  url "https://github.com/dbpprt/dieter/releases/download/v#{version}/Dieter-macOS-arm64.zip"
+  url "https://github.com/dbpprt/dieter/releases/download/v0.5.404/Dieter-macOS-arm64.zip"
   name "Dieter"
   desc "Native client for durable local AI coding-agent conversations"
   homepage "https://github.com/dbpprt/dieter"
