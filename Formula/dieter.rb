@@ -3,9 +3,9 @@
 class Dieter < Formula
   desc "Local daemon for durable AI coding-agent conversations"
   homepage "https://github.com/dbpprt/dieter"
-  url "https://github.com/dbpprt/dieter/releases/download/v0.6.426/dieter-darwin-arm64.tar.gz"
-  version "0.6.426"
-  sha256 "b2a220e0400abe0c2b75c45be565eb1f970d210ba2be1619b9da711789f9d4e0"
+  url "https://github.com/dbpprt/dieter/releases/download/v0.6.427/dieter-darwin-arm64.tar.gz"
+  version "0.6.427"
+  sha256 "607f4937fd4b66c336aad25eee82fe7e60c7cd9cfc2f2d0a828f661b6bfe278f"
   license "MIT"
 
   depends_on arch: :arm64
@@ -31,7 +31,9 @@ class Dieter < Formula
          "--runtime", var/"dieter/service"]
     keep_alive true
     restart_delay 5
-    process_type :background
+    # The daemon serves interactive RPCs and launches user-requested workers.
+    # Background QoS is inherited by those workers and can starve the writer.
+    process_type :standard
     environment_variables PATH: std_service_path_env
     log_path var/"log/dieter-service.log"
     error_log_path var/"log/dieter-service.log"
