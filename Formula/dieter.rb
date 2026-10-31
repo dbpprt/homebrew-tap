@@ -3,9 +3,9 @@
 class Dieter < Formula
   desc "Local daemon for durable AI coding-agent conversations"
   homepage "https://github.com/dbpprt/dieter"
-  url "https://github.com/dbpprt/dieter/releases/download/v0.6.431/dieter-darwin-arm64.tar.gz"
-  version "0.6.431"
-  sha256 "6f87c8c73de497a611abf439016fccb5135d24e64af3a9bf15b462f29e819a46"
+  url "https://github.com/dbpprt/dieter/releases/download/v0.6.432/dieter-darwin-arm64.tar.gz"
+  version "0.6.432"
+  sha256 "d82c625fa82e287d4133190f68988c30140550a8cbd2f020ea6317bcdffe6355"
   license "MIT"
 
   depends_on arch: :arm64
