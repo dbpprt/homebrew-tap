@@ -1,8 +1,8 @@
 # Rendered into dbpprt/homebrew-tap Casks/dieter-app.rb by `fastlane promote` from
 # config/identity.json and the promoted release. Edit this template, not the tap.
 cask "dieter-app" do
-  version "0.6.433"
-  sha256 "b9e991ee34c9e12f38528fc6924fa5a373965f4c0b40e94a358cad4bf240ef7c"
+  version "0.6.437"
+  sha256 "3e7cc3d58bb436c82ea09466374490ed1bca1006ea02a061c96f8d3ca7ad383c"
 
   url "https://github.com/dbpprt/dieter/releases/download/v#{version}/Dieter-macOS-arm64.zip"
   name "Dieter"
